@@ -5,6 +5,114 @@
 $ npm test
 ```
 
+## Challenges
+
+- [PopularNToys](#popularntoys)
+- [CriticalRouters](#criticalrouters)
+- [MinimumTime](#minimumtime)
+- [OptimalUtilization](#optimalutilization)
+
+## PopularNToys
+
+You work on a team whose job is to understand the most sought after toys for the holiday season. A tearnmate of yours has built a
+webcrawler that extracts a list of quotes about toys from different articles. You need to take these quotes and identify which toys are
+mentioned most frequently. Write an algorithm that identifies the top N toys out of a list of quotes and list of toys.
+
+Your algorithm should output the top N toys mentioned most frequently in the quotes.
+
+### Input
+
+The input to the function/method consists of five arguments -
+
+numToys, an integer representing the number of toys;
+
+topToys, an integer representing the number of top toys your algorithm needs to return;
+
+toys, a list of strings representing the toys;
+
+numQuotes, an integer representing the number of quotes about toys;
+
+quotes, a list of strings that consist of space-separated words representing articles about toys.
+
+### Output
+
+Return a list of strings of the most popular N toys in order of most to least frequently mentioned.
+
+Note
+
+The comparison of strings is case-insensitive.
+Multiple occurrences of a toy in a quote should be considered as a single mention.
+If the value of topToys is more than the number of toys, return the names of only the toys mentioned in the quotes.
+If toys are mentioned an equal number of times in quotes, sort alphabetically.
+
+### Example
+
+Input:
+
+numToys = 6
+
+topToys = 2
+
+toys = ["elmo’”, “elsa’, “legos”, “drone”, “tablet”, “warcraft"]
+
+numQuotes = 6
+
+quotes= [Elmo is the hottest toy of the season! Elmo will be on every kid's wishlist!”, “The new Elmo dolls are super high quality.”,
+“Expect the Elsa dolls to be very popular this year’, “Elsa and Elmo are the toys I'll be buying for my kids.”, “For parents of older kids,
+look into buying them a drone.”, “Warcraft is slowly rising in popularity ahead of the holiday season.”]
+
+Output:
+
+["elmo", "elsa"]
+
+Explanation:
+
+“elmo” occurs in three different quotes, “elsa” occurs in two, and “drone” and “warcraft” occur in one quote each.
+
+## CriticalRouters
+
+AWS wants to increase the reliability of their network by upgrading crucial data center routers. Each data center has a single
+router that is connected to every other data center either through a direct link or some other data center.
+
+To increase the fault tolerance of the network, AWS wants to identify every router which would result in a disconnected
+network if that individual router went down. Those routers will then be upgraded.
+
+Write an algorithm to identify all such routers that need to be connected to the network all the time.
+
+### Input
+
+The input to the function/method consists of three arguments:
+
+numRouters, an integer representing the number of routers in the data center (23),
+
+numLinks, an integer representing the number of links between the pair of routers,
+
+links, a list of pairs of integers - A, B representing a link between the routers A and B. The network will be connected.
+
+### Output
+
+Return a list of integers representing the routers which need to be connected to the network all the time.
+
+### Example
+
+Input:
+
+numRouters = 7
+
+numLinks = 7
+
+links = [[1, 2], [1, 3], [2, 4], [3, 4], [3, 6], [6, 7], [4, 5]]
+
+Output:
+
+[3, 4, 6]
+
+Explanation:
+
+On disconnecting router 3, a packet may be routed either to the routers - 1, 2, 4, 5 or to the routers - 6, 7, but not to all.
+On disconnecting router 4, a packet may be routed either to the routers - 1, 2, 3, 6, 7 or to the router - 5, but not to all.
+On disconnecting router 6, a packet may be routed either to the routers - 1, 2,3, 4,5 or to the router — 7, but not to all.
+
 ## MinimumTime
 
 Amazon Fulfillment Builder is a new feature that enables Amazon warehouses to create
@@ -27,6 +135,7 @@ build the final product.
 The input to the function/method consists of two arguments:
 
 - numOfParts, an integer representing the number of the parts;
+
 - parts, a list of integers representing the size of the parts.
 
 ### Output
@@ -36,13 +145,17 @@ Return an integer representing the minimum time required to assemble all the par
 ### Constraints
 
 2 <= numOfParts <= 10^6
+
 1 <= parts[i] <= 10^6
+
 0 <= i < numOfParts
 
 ### Example
 
 Input:
+
 numOfParts = 4
+
 parts = [8, 4, 6, 12]
 
 Output:
@@ -119,7 +232,9 @@ pair.
 Input:
 
 maxTravelDist = 7000
+
 forwardRouteList = [[1,2000],[2,4000],[3,6000]]
+
 returnRouteList = [[1,2000]]
 
 Output:
@@ -137,7 +252,9 @@ only optimal pair.
 Input:
 
 maxTravelDist = 10000
+
 forwardRouteList = [[1, 3000], [2, 5000], [3, 7000], [4, 10000]]
+
 returnRouteList = [[1, 2000], [2, 3000], [3, 4000], [4, 5000]
 
 Output:
@@ -158,98 +275,3 @@ miles travelled. These also add up to 10000 miles travelled.
 
 Therefore, the pairs of forward and return shipping routes that optimally utilize the aircraft
 are [2, 4] and [3, 2].
-
-## PopularNToys
-
-You work on a team whose job is to understand the most sought after toys for the holiday season. A tearnmate of yours has built a
-webcrawler that extracts a list of quotes about toys from different articles. You need to take these quotes and identify which toys are
-mentioned most frequently. Write an algorithm that identifies the top N toys out of a list of quotes and list of toys.
-
-Your algorithm should output the top N toys mentioned most frequently in the quotes.
-
-### Input
-
-The input to the function/method consists of five arguments -
-
-numToys, an integer representing the number of toys;
-
-topToys, an integer representing the number of top toys your algorithm needs to return;
-
-toys, a list of strings representing the toys;
-
-numQuotes, an integer representing the number of quotes about toys;
-
-quotes, a list of strings that consist of space-separated words representing articles about toys.
-
-### Output
-
-Return a list of strings of the most popular N toys in order of most to least frequently mentioned.
-
-Note
-
-The comparison of strings is case-insensitive.
-Multiple occurrences of a toy in a quote should be considered as a single mention.
-If the value of topToys is more than the number of toys, return the names of only the toys mentioned in the quotes.
-If toys are mentioned an equal number of times in quotes, sort alphabetically.
-
-### Example
-
-Input:
-
-numToys = 6
-topToys = 2
-toys = ["elmo’”, “elsa’, “legos”, “drone”, “tablet”, “warcraft"]
-numQuotes = 6
-quotes= [Elmo is the hottest toy of the season! Elmo will be on every kid's wishlist!”, “The new Elmo dolls are super high quality.”,
-“Expect the Elsa dolls to be very popular this year’, “Elsa and Elmo are the toys I'll be buying for my kids.”, “For parents of older kids,
-look into buying them a drone.”, “Warcraft is slowly rising in popularity ahead of the holiday season.”]
-
-Output:
-
-["elmo", "elsa"]
-
-Explanation:
-
-“elmo” occurs in three different quotes, “elsa” occurs in two, and “drone” and “warcraft” occur in one quote each.
-
-## CriticalRouters
-
-AWS wants to increase the reliability of their network by upgrading crucial data center routers. Each data center has a single
-router that is connected to every other data center either through a direct link or some other data center.
-
-To increase the fault tolerance of the network, AWS wants to identify every router which would result in a disconnected
-network if that individual router went down. Those routers will then be upgraded.
-
-Write an algorithm to identify all such routers that need to be connected to the network all the time.
-
-### Input
-
-The input to the function/method consists of three arguments:
-
-numRouters, an integer representing the number of routers in the data center (23),
-
-numLinks, an integer representing the number of links between the pair of routers,
-
-links, a list of pairs of integers - A, B representing a link between the routers A and B. The network will be connected.
-
-### Output
-
-Return a list of integers representing the routers which need to be connected to the network all the time.
-
-### Example
-
-Input:
-
-numRouters = 7
-numLinks = 7
-links = [[1, 2], [1, 3], [2, 4], [3, 4], [3, 6], [6, 7], [4, 5]]
-
-Output:
-
-[3, 4, 6]
-
-Explanation:
-
-On disconnecting router 3, a packet may be routed either to the routers - 1, 2, 4, 5 or to the routers - 6, 7, but not to all.
-On disconnecting router 4, a packet may be routed either to the routers - 1, 2, 3, 6, 7 or to the router - 5, but not to all.
-On disconnecting router 6, a packet may be routed either to the routers - 1, 2,3, 4,5 or to the router — 7, but not to all.

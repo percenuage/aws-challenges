@@ -1,33 +1,3 @@
-function minimumTime(numOfParts, parts) {
-    let total = 0;
-    const list = parts.slice(0);
-    while (list.length > 1) {
-        list.sort((a, b) => a - b);
-        const sum = list.shift() + list.shift();
-        list.push(sum);
-        total += sum;
-    }
-    return total;
-}
-
-function optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList) {
-    let optimizedRouteIds = [];
-    let optimizedRouteDist = 0;
-    forwardRouteList.forEach(([ forwardId, forwardDist ]) => {
-        returnRouteList.forEach(([ returnId, returnDist ]) => {
-            const pair = [ forwardId, returnId ];
-            const dist = forwardDist + returnDist;
-            if (dist === optimizedRouteDist) {
-                optimizedRouteIds.push(pair);
-            } else if (dist <= maxTravelDist && dist > optimizedRouteDist) {
-                optimizedRouteIds = [pair];
-                optimizedRouteDist = dist;
-            }
-        })
-    });
-    return optimizedRouteIds;
-}
-
 function popularNToys(numToys, topToys, toys, numQuotes, quotes) {
     const toyCountRef = {};
     quotes.forEach(quote => {
@@ -94,9 +64,39 @@ function criticalRouters(numRouters, numLinks, links) {
     return output;
 }
 
+function minimumTime(numOfParts, parts) {
+    let total = 0;
+    const list = parts.slice(0);
+    while (list.length > 1) {
+        list.sort((a, b) => a - b);
+        const sum = list.shift() + list.shift();
+        list.push(sum);
+        total += sum;
+    }
+    return total;
+}
+
+function optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList) {
+    let optimizedRouteIds = [];
+    let optimizedRouteDist = 0;
+    forwardRouteList.forEach(([ forwardId, forwardDist ]) => {
+        returnRouteList.forEach(([ returnId, returnDist ]) => {
+            const pair = [ forwardId, returnId ];
+            const dist = forwardDist + returnDist;
+            if (dist === optimizedRouteDist) {
+                optimizedRouteIds.push(pair);
+            } else if (dist <= maxTravelDist && dist > optimizedRouteDist) {
+                optimizedRouteIds = [pair];
+                optimizedRouteDist = dist;
+            }
+        })
+    });
+    return optimizedRouteIds;
+}
+
 module.exports = {
-    minimumTime,
-    optimalUtilization,
     popularNToys,
-    criticalRouters
+    criticalRouters,
+    minimumTime,
+    optimalUtilization
 };
